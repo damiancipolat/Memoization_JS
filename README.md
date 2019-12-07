@@ -17,4 +17,4 @@ Yes, Memoization is actually a specific type of caching. While caching can refer
 - Api calls.
 - Heavy computational functions.
 
-Written with 💖
+Writted with 💖
