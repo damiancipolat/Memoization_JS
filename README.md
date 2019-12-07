@@ -9,10 +9,12 @@ Memoizing in simple terms means memorizing or storing in memory. A memoized func
 ### Pure funtions
 A function is a process which takes some input, called arguments, and produces some output called a return value.
 
-### Issame as caching?
+### Is same as caching?
 Yes, Memoization is actually a specific type of caching. While caching can refer in general to any storing technique (like HTTP caching) for future use, memoizing specifically involves caching the return values of a function.
 
 ### When to memoize your functions?
 - Only pure functions.
 - Api calls.
 - Heavy computational functions.
+
+Written with 💖
