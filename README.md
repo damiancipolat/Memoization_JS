@@ -17,7 +17,9 @@ Yes, Memoization is actually a specific type of caching. While caching can refer
 - Api calls.
 - Heavy computational functions.
 
-### JS code
+### Memoize js code:
+This memoize store the functions arguments in a internal cache, using bas64 to encode the parameters to create a hash. We are following the principle, that f(a) = b and alway when function is calle with a returns b.
+
 ```js
 //Memoize function: high order, curryng.
 const memoize = (fn) => {
@@ -55,6 +57,10 @@ console.log(memoizeSum(3,1));  // cached
 console.log(memoizeSum(4,4));  // calculated
 console.log(memoizeSum(4,4));  // cached
 ```
+
+### Memoize js + timeout:
+The same function but including a .
+
 
 ## Resources:
 - https://www.freecodecamp.org/news/understanding-memoize-in-javascript-51d07d19430e/
