@@ -17,4 +17,46 @@ Yes, Memoization is actually a specific type of caching. While caching can refer
 - Api calls.
 - Heavy computational functions.
 
+### JS code
+```js
+//Memoize function: high order, curryng.
+const memoize = (fn) => {
+
+  let cache = {};
+  
+  return (...args) => {
+    
+    //Create hash.
+    const n = btoa(args);
+
+    //Find in cache or store new values.
+    if (n in cache)      
+      return cache[n];
+    else {    
+      let result = fn(n);
+      cache[n] = result;
+
+      return result;
+    }
+
+  }
+
+}
+
+//Function to be stored.
+const sum = (x,y) =>x+y;
+
+//Wrapp a function.
+const memoizeSum = memoize(add);
+
+//Tests
+console.log(memoizeSum(3,1));  // calculated
+console.log(memoizeSum(3,1));  // cached
+console.log(memoizeSum(4,4));  // calculated
+console.log(memoizeSum(4,4));  // cached
+```
+
+
+
+
 Writted with 💖
