@@ -56,7 +56,10 @@ console.log(memoizeSum(4,4));  // calculated
 console.log(memoizeSum(4,4));  // cached
 ```
 
-
+## Resources:
+- https://www.freecodecamp.org/news/understanding-memoize-in-javascript-51d07d19430e/
+- https://codeburst.io/understanding-memoization-in-3-minutes-2e58daf33a19
+- https://codeburst.io/understanding-memoization-in-3-minutes-2e58daf33a19
 
 
 Writted with 💖
