@@ -59,8 +59,53 @@ console.log(memoizeSum(4,4));  // cached
 ```
 
 ### Memoize js + timeout:
-The same function but including a .
+The same memoize function, but using a timeout to expire the cache after the time finish.
 
+```js
+const memoizeTimeout = (fn,time) => {
+
+  let cache = {};
+  let timeId;
+
+  return (...args) => {
+
+      //Erase cache.
+      timeId = setTimeOut(()=>{
+        cache={};
+        clearInterval(timeId);
+      });
+
+      //Create hash.
+      const n = btoa(args);
+
+      //Find in cache or store new values.      
+      if (n in cache){        
+        return cache[n];
+      } else {    
+        let result = fn(n);        
+        cache[n] = result;
+
+        return result;
+      }
+
+    },time);    
+
+  }
+
+}
+
+//Function to be stored.
+const sum = (x,y) =>x+y;
+
+//Wrapp a function.
+const memoizeSum = memoize(add,1000);
+
+//Tests
+console.log(memoizeSum(3,1));  // calculated
+console.log(memoizeSum(3,1));  // cached
+console.log(memoizeSum(4,4));  // calculated
+console.log(memoizeSum(4,4));  // cached
+```
 
 ## Resources:
 - https://www.freecodecamp.org/news/understanding-memoize-in-javascript-51d07d19430e/
