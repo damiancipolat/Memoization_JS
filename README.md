@@ -98,7 +98,7 @@ const memoizeTimeout = (fn,time) => {
 const sum = (x,y) =>x+y;
 
 //Wrapp a function.
-const memoizeSum = memoize(add,1000);
+const memoizeSum = memoizeTimeout(add,1000);
 
 //Tests
 console.log(memoizeSum(3,1));  // calculated
