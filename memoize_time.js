@@ -5,20 +5,22 @@ const memoizeTimeout = (fn,time) => {
 
   return (...args) => {
 
-    timeId = setTimeOut(()=>{
+      //Erase cache.
+      timeId = setTimeOut(()=>{
+        cache={};
+        clearInterval(timeId);
+      });
 
       //Create hash.
       const n = btoa(args);
 
-      //Find in cache or store new values.      
-      if (n in cache){
-        clearInterval(timeId);
+      //Find in cache or store new values.
+      if (n in cache){        
         return cache[n];
       } else {    
-        let result = fn(n);        
+        let result = fn(n);
         cache[n] = result;
-        clearInterval(timeId);
-        
+
         return result;
       }
 
